@@ -24,7 +24,8 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string Image { get; set; }
-        public Category Category { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
         public ICollection<InvoiceItem> InvoiceItems { get; set; }
     }
 }

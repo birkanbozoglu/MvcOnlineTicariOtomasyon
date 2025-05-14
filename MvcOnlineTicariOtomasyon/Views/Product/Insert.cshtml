@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Product
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+<h2>Insert Product</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Name)
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Brand)
+    @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CategoryId)
+    @Html.DropDownListFor(x=> x.CategoryId, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Stock)
+    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PruchasePrice)
+    @Html.TextBoxFor(x => x.PruchasePrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.SalePrice)
+    @Html.TextBoxFor(x => x.SalePrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Status)
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Image)
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>

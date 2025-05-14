@@ -1,0 +1,15 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Category
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+<h2>Insert Category</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=> x.Name)
+    @Html.TextBoxFor(x=> x.Name, new { @class="form-control"})
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>

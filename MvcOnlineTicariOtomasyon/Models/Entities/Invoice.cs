@@ -24,7 +24,8 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string Deliverer { get; set; }
-        public Company Company { get; set; }
+        public int CompanyId { get; set; }
+        public virtual Company Company { get; set; }
 
         public ICollection<Personel> Personels { get; set; }
         public ICollection<InvoiceItem> InvoiceItems { get; set; }

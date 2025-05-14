@@ -11,14 +11,16 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
     {
         [Key]
         public int Id { get; set; }
-        public Product Product { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal TotalPrice { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string Description { get; set; }
-        public Invoice Invoice { get; set; }
+        public int ProductId { get; set; }
+        public int InvoiceId { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Invoice Invoice { get; set; }
         public ICollection<SalesTransaction> SalesTransactions { get; set; }
     }
 }

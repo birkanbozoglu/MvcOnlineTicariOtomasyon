@@ -10,6 +10,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
     {
         [Key]
         public int Id { get; set; }
-        public InvoiceItem InvoiceItem { get; set; }
+        public int InvoiceItemId { get; set; }
+        public virtual InvoiceItem InvoiceItem { get; set; }
     }
 }
