@@ -1,0 +1,26 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Personel
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><strong>Insert Personel</strong></li>
+</ol>
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.FirstName)
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.LastName)
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.DepartmentId)
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.Departments, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Image)
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>

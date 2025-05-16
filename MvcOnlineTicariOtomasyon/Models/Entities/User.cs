@@ -20,5 +20,6 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Column(TypeName = "Char")]
         [StringLength(1)]
         public string Role { get; set; }
+        public bool IsActive { get; set; }
     }
 }

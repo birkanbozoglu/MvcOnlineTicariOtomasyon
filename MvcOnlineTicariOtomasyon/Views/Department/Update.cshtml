@@ -1,19 +1,18 @@
-﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Category
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Department
 @{
     ViewBag.Title = "Update";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 <br />
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active"><strong>Update Category</strong></li>
+    <li class="breadcrumb-item active"><strong>Update Department</strong></li>
 </ol>
 
-@using (Html.BeginForm("Update", "Category", FormMethod.Post))
+@using (Html.BeginForm("Update", "Department", FormMethod.Post))
 {
     <div class="form-group">
         @Html.LabelFor(x => x.Name)
         @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:red" })
         <br />
         @Html.LabelFor(x => x.IsActive)
         @Html.CheckBoxFor(x => x.IsActive, new { @class = "form-control" })

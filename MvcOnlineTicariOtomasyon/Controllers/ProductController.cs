@@ -16,7 +16,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var list = new List<Product>();
             using (var ctx = new Context())
             {
-                list = ctx.Products.Where(x => x.Status == true)
+                list = ctx.Products.Where(x => x.IsActive == true)
                                    .Include(x => x.Category).ToList();
             }
             return View(list);
@@ -28,11 +28,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var categories = new List<SelectListItem>();
             using (var ctx = new Context())
             {
-                categories = ctx.Categories.Select(ss => new SelectListItem
-                {
-                    Text = ss.Name,
-                    Value = ss.Id.ToString()
-                }).ToList();
+                categories = ctx.Categories.Where(ss => ss.IsActive == true)
+                                           .Select(ss => new SelectListItem
+                                           {
+                                               Text = ss.Name,
+                                               Value = ss.Id.ToString()
+                                           }).ToList();
             }
             ViewBag.Categories = categories;
             return View();
@@ -43,6 +44,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             using (var ctx = new Context())
             {
+                data.IsActive = true;
                 ctx.Products.Add(data);
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
@@ -54,7 +56,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             using (var ctx = new Context())
             {
                 var entity = ctx.Products.Find(id);
-                entity.Status = false;
+                entity.IsActive = false;
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,11 +68,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             using (var ctx = new Context())
             {
-                categories = ctx.Categories.Select(ss => new SelectListItem
-                {
-                    Text = ss.Name,
-                    Value = ss.Id.ToString()
-                }).ToList();
+                categories = ctx.Categories.Where(ss => ss.IsActive == true)
+                                           .Select(ss => new SelectListItem
+                                           {
+                                               Text = ss.Name,
+                                               Value = ss.Id.ToString()
+                                           }).ToList();
 
                 ViewBag.Categories = categories;
 
@@ -86,7 +89,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             {
                 var entity = ctx.Products.Find(data.Id);
                 entity.Name = data.Name;
-                entity.Status = data.Status;
+                entity.IsActive = data.IsActive;
                 entity.Brand = data.Brand;
                 entity.SalePrice = data.SalePrice;
                 entity.CategoryId = data.CategoryId;

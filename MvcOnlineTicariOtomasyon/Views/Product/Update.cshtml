@@ -4,8 +4,10 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 <br />
-<h2>Update Product</h2>
-<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><strong>Update Product</strong></li>
+</ol>
+
 @using (Html.BeginForm("Update", "Product", FormMethod.Post))
 {
     <div class="form-group">
@@ -27,8 +29,8 @@
         @Html.LabelFor(x => x.SalePrice)
         @Html.TextBoxFor(x => x.SalePrice, new { @class = "form-control" })
         <br />
-        @Html.LabelFor(x => x.Status)
-        @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+        @Html.LabelFor(x => x.IsActive)
+        @Html.CheckBoxFor(x => x.IsActive, new { @class = "form-control" })
         <br />
         @Html.LabelFor(x => x.Image)
         @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })

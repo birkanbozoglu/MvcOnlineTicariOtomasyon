@@ -20,7 +20,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         public short Stock { get; set; }
         public decimal PruchasePrice { get; set; }
         public decimal SalePrice { get; set; }
-        public bool Status { get; set; }
+        public bool IsActive { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string Image { get; set; }

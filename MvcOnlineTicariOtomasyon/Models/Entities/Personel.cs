@@ -20,11 +20,11 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string Image { get; set; }
-        public int InvoiceId { get; set; }
+        public bool IsActive { get; set; }
 
         public int DepartmentId { get; set; }
-        public virtual Invoice Invoice { get; set; }
-        
+
         public virtual Department Department { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
     }
 }

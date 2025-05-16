@@ -1,4 +1,4 @@
-﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Category
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Department
 @{
     ViewBag.Title = "Insert";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -6,13 +6,12 @@
 
 <br />
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active"><strong>Insert Category</strong></li>
+    <li class="breadcrumb-item active"><strong>Insert Department</strong></li>
 </ol>
 
 <form class="form-group" method="post">
     @Html.LabelFor(x => x.Name)
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:red" })
     <br />
     <button class="btn btn-info">Save</button>
 </form>

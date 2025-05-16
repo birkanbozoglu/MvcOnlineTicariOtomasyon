@@ -12,8 +12,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Key]
         public int Id { get; set; }
         [Column(TypeName = "Varchar")]
-        [StringLength(30)]
+        [StringLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string Name { get; set; }
+        public bool IsActive { get; set; }
         public ICollection<Product> Products { get; set; }
 
     }

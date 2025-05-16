@@ -5,8 +5,10 @@
 }
 
 <br />
-<h2>Insert Product</h2>
-<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><strong>Insert Product</strong></li>
+</ol>
+
 <form class="form-group" method="post">
     @Html.LabelFor(x => x.Name)
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
@@ -15,7 +17,7 @@
     @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.CategoryId)
-    @Html.DropDownListFor(x=> x.CategoryId, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Stock)
     @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
@@ -25,9 +27,6 @@
     <br />
     @Html.LabelFor(x => x.SalePrice)
     @Html.TextBoxFor(x => x.SalePrice, new { @class = "form-control" })
-    <br />
-    @Html.LabelFor(x => x.Status)
-    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Image)
     @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })

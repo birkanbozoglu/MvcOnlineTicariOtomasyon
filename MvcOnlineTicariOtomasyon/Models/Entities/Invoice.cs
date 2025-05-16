@@ -26,8 +26,8 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         public string Deliverer { get; set; }
         public int CompanyId { get; set; }
         public virtual Company Company { get; set; }
-
-        public ICollection<Personel> Personels { get; set; }
+        public int PersonelId { get; set; }
+        public virtual Personel Personel { get; set; }
         public ICollection<InvoiceItem> InvoiceItems { get; set; }
 
     }

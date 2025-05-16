@@ -7,15 +7,15 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
-    public class CategoryController : Controller
+    public class DepartmentController : Controller
     {
-        // GET: Category
+        // GET: Department
         public ActionResult Index()
         {
-            var list = new List<Category>();
+            var list = new List<Department>();
             using (var ctx = new Context())
             {
-                list = ctx.Categories.Where(x => x.IsActive == true).ToList();
+                list = ctx.Departments.Where(ss => ss.IsActive == true).ToList();
             }
             return View(list);
         }
@@ -27,17 +27,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
 
         [HttpPost]
-        public ActionResult Insert(Category data)
+        public ActionResult Insert(Department data)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Insert");
-            }
-
             using (var ctx = new Context())
             {
                 data.IsActive = true;
-                ctx.Categories.Add(data);
+                ctx.Departments.Add(data);
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -47,7 +42,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             using (var ctx = new Context())
             {
-                var entity = ctx.Categories.Find(id);
+                var entity = ctx.Departments.Find(id);
                 entity.IsActive = false;
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
@@ -58,26 +53,32 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             using (var ctx = new Context())
             {
-                var entity = ctx.Categories.Find(id);
+                var entity = ctx.Departments.Find(id);
                 return View("Update", entity);
             }
         }
 
         [HttpPost]
-        public ActionResult Update(Category data)
+        public ActionResult Update(Department data)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Update");
-            }
-
             using (var ctx = new Context())
             {
-                var entity = ctx.Categories.Find(data.Id);
+                var entity = ctx.Departments.Find(data.Id);
                 entity.Name = data.Name;
                 entity.IsActive = data.IsActive;
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
+            }
+        }
+
+        public ActionResult Personels(int id)
+        {
+            using (var ctx = new Context())
+            {
+                var entity = ctx.Personels.Where(ss => ss.DepartmentId == id).ToList();
+                var departmentName = ctx.Departments.FirstOrDefault(ss => ss.Id == id).Name;
+                ViewBag.DepartmentName = departmentName;
+                return View("Personels", entity);
             }
         }
     }

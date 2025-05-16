@@ -1,0 +1,40 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities;
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><strong>Personels</strong></li>
+</ol>
+
+<table class="table table-dark table-striped table-hover" style="margin-top:20px;">
+    <tr>
+        <th>Personel ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Department Name</th>
+        <th>Image</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id.ToString()</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.Department.Name</td>
+            <td>@item.Image</td>
+
+            <td><a href="/Personel/Delete/@item.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Personel/Update/@item.Id" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Personel/Insert" class="btn btn-primary">New Personel</a>
+
+

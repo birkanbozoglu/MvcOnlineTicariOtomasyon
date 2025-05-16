@@ -29,6 +29,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Column(TypeName = "Varchar")]
         [StringLength(10)]
         public string TaxNumber { get; set; }
+        public bool IsActive { get; set; }
         public ICollection<Invoice> Invoices { get; set; }
     }
 }

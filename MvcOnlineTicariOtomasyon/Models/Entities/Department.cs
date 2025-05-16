@@ -14,6 +14,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Entities
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string Name { get; set; }
+        public bool IsActive { get; set; }
         public ICollection<Personel> Personels { get; set; }
     }
 }

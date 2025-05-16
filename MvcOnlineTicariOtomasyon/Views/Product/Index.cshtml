@@ -5,7 +5,12 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<table class="table table-bordered" style="margin-top:20px;">
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><strong>Products</strong></li>
+</ol>
+
+<table class="table table-dark table-striped table-hover" style="margin-top:20px;">
     <tr>
         <th>Product ID</th>
         <th>Name</th>
@@ -14,7 +19,6 @@
         <th>Stock</th>
         <th>Pruchase Price</th>
         <th>Sale Price</th>
-        <th>Status</th>
         <th>Image</th>
         <th>Delete</th>
         <th>Update</th>
@@ -29,9 +33,8 @@
             <td>@item.Stock.ToString()</td>
             <td>@item.PruchasePrice.ToString()</td>
             <td>@item.SalePrice.ToString()</td>
-            <td>@item.Status.ToString()</td>
             <td>@item.Image</td>
-            
+
             <td><a href="/Product/Delete/@item.Id" class="btn btn-danger">Delete</a></td>
             <td><a href="/Product/Update/@item.Id" class="btn btn-success">Update</a></td>
         </tr>
