@@ -65,7 +65,6 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             {
                 var entity = ctx.Departments.Find(data.Id);
                 entity.Name = data.Name;
-                entity.IsActive = data.IsActive;
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
             }

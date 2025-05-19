@@ -13,9 +13,6 @@
     <div class="form-group">
         @Html.LabelFor(x => x.Name)
         @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-        <br />
-        @Html.LabelFor(x => x.IsActive)
-        @Html.CheckBoxFor(x => x.IsActive, new { @class = "form-control" })
     </div>
     <button class="btn btn-warning">Update</button>
 }

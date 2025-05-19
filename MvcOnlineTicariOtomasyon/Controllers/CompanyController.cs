@@ -7,15 +7,15 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
-    public class CategoryController : Controller
+    public class CompanyController : Controller
     {
-        // GET: Category
+        // GET: Company
         public ActionResult Index()
         {
-            var list = new List<Category>();
+            var list = new List<Company>();
             using (var ctx = new Context())
             {
-                list = ctx.Categories.Where(x => x.IsActive == true).ToList();
+                list = ctx.Companies.Where(x => x.IsActive == true).ToList();
             }
             return View(list);
         }
@@ -27,17 +27,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
 
         [HttpPost]
-        public ActionResult Insert(Category data)
+        public ActionResult Insert(Company data)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Insert");
-            }
-
             using (var ctx = new Context())
             {
                 data.IsActive = true;
-                ctx.Categories.Add(data);
+                ctx.Companies.Add(data);
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -47,7 +42,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             using (var ctx = new Context())
             {
-                var entity = ctx.Categories.Find(id);
+                var entity = ctx.Companies.Find(id);
                 entity.IsActive = false;
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
@@ -58,23 +53,23 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             using (var ctx = new Context())
             {
-                var entity = ctx.Categories.Find(id);
+                var entity = ctx.Companies.Find(id);
                 return View("Update", entity);
             }
         }
 
         [HttpPost]
-        public ActionResult Update(Category data)
+        public ActionResult Update(Company data)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Update");
-            }
-
             using (var ctx = new Context())
             {
-                var entity = ctx.Categories.Find(data.Id);
-                entity.Name = data.Name;
+                var entity = ctx.Companies.Find(data.Id);
+                entity.FirstName = data.FirstName;
+                entity.LastName = data.LastName;
+                entity.TaxNumber = data.TaxNumber;
+                entity.TaxOffice = data.TaxOffice;
+                entity.City = data.City;
+                entity.Email = data.Email;
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
             }

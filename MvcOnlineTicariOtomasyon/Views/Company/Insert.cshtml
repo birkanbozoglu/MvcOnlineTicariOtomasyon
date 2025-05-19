@@ -1,0 +1,32 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Company
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><strong>Insert Company</strong></li>
+</ol>
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.FirstName)
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.LastName)
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.City)
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxOffice)
+    @Html.TextBoxFor(x => x.TaxOffice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxNumber)
+    @Html.TextBoxFor(x => x.TaxNumber, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Save</button>
+</form>

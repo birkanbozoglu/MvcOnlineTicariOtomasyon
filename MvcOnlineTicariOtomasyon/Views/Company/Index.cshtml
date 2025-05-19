@@ -1,0 +1,44 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Entities;
+@model List<Company>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><strong>Companies</strong></li>
+</ol>
+
+<table class="table table-dark table-striped table-hover" style="margin-top:20px;">
+    <tr>
+        <th>Company ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>City</th>
+        <th>Email</th>
+        <th>Tax Office</th>
+        <th>Tax Number</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id.ToString()</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.City</td>
+            <td>@item.Email</td>
+            <td>@item.TaxOffice</td>
+            <td>@item.TaxNumber</td>
+
+            <td><a href="/Company/Delete/@item.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Company/Update/@item.Id" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Company/Insert" class="btn btn-primary">New Company</a>
+
+

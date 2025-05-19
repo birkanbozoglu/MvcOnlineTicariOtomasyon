@@ -90,7 +90,6 @@ namespace MvcOnlineTicariOtomasyon.Controllers
                 var entity = ctx.Personels.Find(data.Id);
                 entity.FirstName = data.FirstName;
                 entity.LastName = data.LastName;
-                entity.IsActive = data.IsActive;
                 entity.DepartmentId = data.DepartmentId;
                 entity.Image = data.Image;
                 ctx.SaveChanges();

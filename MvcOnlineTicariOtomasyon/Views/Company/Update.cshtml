@@ -1,0 +1,34 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Entities.Company
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><strong>Update Company</strong></li>
+</ol>
+
+@using (Html.BeginForm("Update", "Company", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.FirstName)
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.LastName)
+        @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.City)
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Email)
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.TaxOffice)
+        @Html.TextBoxFor(x => x.TaxOffice, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.TaxNumber)
+        @Html.TextBoxFor(x => x.TaxNumber, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-warning">Update</button>
+}
+

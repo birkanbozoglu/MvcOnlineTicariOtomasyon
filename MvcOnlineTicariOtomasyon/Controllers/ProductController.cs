@@ -89,7 +89,6 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             {
                 var entity = ctx.Products.Find(data.Id);
                 entity.Name = data.Name;
-                entity.IsActive = data.IsActive;
                 entity.Brand = data.Brand;
                 entity.SalePrice = data.SalePrice;
                 entity.CategoryId = data.CategoryId;
